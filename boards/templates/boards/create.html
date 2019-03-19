@@ -1,0 +1,15 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    <!--<input type="text" name="title"><br>-->
+    <!--<textarea name="content"></textarea>-->
+    
+    <!--p태그로 감싸준다-->
+    {{ board_form.as_p }} 
+    <input type="submit">
+</form>
+
+
+{% endblock %}
