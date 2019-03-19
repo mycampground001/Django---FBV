@@ -1,10 +1,12 @@
 {% extends 'boards/base.html' %}
 
 {% block body %}
+{% load crispy_forms_tags %}
 {% if request.resolver_match.url_name == 'create' %}
-    <h1>글생 성</h1>
+    <br>
+    <h1>글 생성</h1>
 {% else %}
-    <h1>글수 정</h1>
+    <h1>글 수정</h1>
 {% endif %}
 <form method="POST">
     {% csrf_token %}
@@ -12,7 +14,7 @@
     <!--<textarea name="content"></textarea>-->
     
     <!--p태그로 감싸준다-->
-    {{ board_form.as_p }} 
+    {{ board_form|crispy }} 
     <input type="submit">
 </form>
 
