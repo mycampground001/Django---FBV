@@ -1,5 +1,7 @@
 from django import forms
 from .models import Board
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 
 # class BoardForm(forms.Form):
 #     title = forms.CharField(label="제목", max_length=10,
@@ -39,3 +41,11 @@ class BoardForm(forms.ModelForm):
                                     'required':'내용은 반드시 써라'
                             }
                         }
+
+
+        #크리스피 한정                
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.helper = FormHelper()
+            self.helper.form_method = "POST"
+            self.helper.add_input(Submit('submit','제출~!'))

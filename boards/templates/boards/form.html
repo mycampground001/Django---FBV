@@ -13,10 +13,18 @@
     <!--<input type="text" name="title"><br>-->
     <!--<textarea name="content"></textarea>-->
     
+    <!--{% for field in board_form %}-->
+    <!--    {{ field.errors }}-->
+    <!--    {{ field.label_tag }} {{ field }}-->
+    <!--{% endfor %}-->
     <!--p태그로 감싸준다-->
     {{ board_form|crispy }} 
     <input type="submit">
 </form>
 
+<form method="POST">
+    {{ board_form.title }}
+    {{ board_form.content }}
+</form>
 
 {% endblock %}

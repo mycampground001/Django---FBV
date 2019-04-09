@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+
 from .models import Board
 from .forms import BoardForm
 
 # Create your views here.
+@login_required
 def index(request):
     
     boards = Board.objects.order_by('-pk')
@@ -13,7 +16,11 @@ def index(request):
         
     return render(request, 'boards/index.html',context)
 
+@login_required
 def create(request):
+    if not request.user.is_authenticated:
+        return redirect('boards:index')
+    
     if request.method == "POST":
         board_form = BoardForm(request.POST)
         # title = request.POST.get('title')
@@ -80,3 +87,5 @@ def update(request, board_pk):
         'board_form': board_form
     }    
     return render(request,'boards/form.html',context)
+    
+    
