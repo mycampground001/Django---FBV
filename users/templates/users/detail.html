@@ -1,0 +1,11 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+    <h1>프로필</h1>
+    <p>{{ user_detail.pk }}</p>
+    <p>{{ user_detail.username }}</p>
+    <p>{{ user_detail.email }}</p>
+    {% for board in user_detail.board_set.all %}
+        <p> {{ board.title }}</p>
+    {% endfor %}
+{% endblock %}

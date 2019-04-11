@@ -1,0 +1,10 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+<h1>회원명부</h1>
+{% for user in users %}
+    <a href = "{% url 'users:detail' user.pk %}">{{ user }}</a>
+{% endfor %}
+    <p>{{ user }}</p>
+
+{% endblock %}

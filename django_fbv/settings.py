@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'boards',
     'accounts',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,5 @@ STATICFILES_DIRS = [
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
